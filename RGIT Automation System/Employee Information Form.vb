@@ -53,7 +53,7 @@
             ' " & employeeTitle.Text & "', 
             '" & firstName.Text & "' , 
             '" & lastName.Text & "' , 
-            '" & dateOfBirth.Text & "', 
+            '" & dateOfBirth.Value.ToShortDateString & "', 
             '" & Val(mobileNumber.Text) & "', 
             '" & Val(phoneNumber.Text) & "',
             '" & email.Text & "',
