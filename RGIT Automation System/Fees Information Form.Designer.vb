@@ -59,12 +59,12 @@ Partial Class Fees_Information_Form
         Me.submitBtn = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dataGridView = New System.Windows.Forms.DataGridView()
         Me.MenuStrip2.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip2
@@ -397,20 +397,20 @@ Partial Class Fees_Information_Form
         Me.Label17.Size = New System.Drawing.Size(0, 13)
         Me.Label17.TabIndex = 18
         '
-        'DataGridView1
+        'dataGridView
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(144, 715)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(727, 224)
-        Me.DataGridView1.TabIndex = 21
+        Me.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dataGridView.Location = New System.Drawing.Point(144, 715)
+        Me.dataGridView.Name = "dataGridView"
+        Me.dataGridView.Size = New System.Drawing.Size(727, 224)
+        Me.dataGridView.TabIndex = 21
         '
         'Fees_Information_Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1018, 966)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dataGridView)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.Label17)
@@ -426,7 +426,7 @@ Partial Class Fees_Information_Form
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -469,5 +469,5 @@ Partial Class Fees_Information_Form
     Friend WithEvents submitBtn As Button
     Friend WithEvents Label16 As Label
     Friend WithEvents Label17 As Label
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dataGridView As DataGridView
 End Class

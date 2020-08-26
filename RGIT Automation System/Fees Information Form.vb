@@ -65,4 +65,28 @@
             Database.Connection.Close()
         End Try
     End Sub
+
+    'Displays the students fees
+    Private Sub findBtn_Click(sender As Object, e As EventArgs) Handles findBtn.Click
+
+        Try
+            'Open database connection
+            Database.OpenConnection()
+
+            'Database table that's being accessed
+            Database.Sql = "select * from Fees_Management "
+
+            'Handles the database connection and SQL 
+            Database.HandleSQL_And_Connection()
+
+            'Select DataAdapter command, fill and display the data to the data grid view
+            dataGridView.DataSource = Database.DataTable
+            Database.DisplayData()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            Database.Connection.Close()
+        End Try
+    End Sub
 End Class
