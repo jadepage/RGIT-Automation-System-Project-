@@ -73,6 +73,7 @@ Partial Class Employee_Information_Form
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.employeeID = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.dataGridView = New System.Windows.Forms.DataGridView()
         Me.MenuStrip2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -81,6 +82,7 @@ Partial Class Employee_Information_Form
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        CType(Me.dataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -533,11 +535,20 @@ Partial Class Employee_Information_Form
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Employee ID"
         '
+        'dataGridView
+        '
+        Me.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dataGridView.Location = New System.Drawing.Point(106, 695)
+        Me.dataGridView.Name = "dataGridView"
+        Me.dataGridView.Size = New System.Drawing.Size(720, 193)
+        Me.dataGridView.TabIndex = 16
+        '
         'Employee_Information_Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(949, 802)
+        Me.ClientSize = New System.Drawing.Size(949, 910)
+        Me.Controls.Add(Me.dataGridView)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.MenuStrip2)
@@ -559,6 +570,7 @@ Partial Class Employee_Information_Form
         Me.GroupBox4.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        CType(Me.dataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -615,4 +627,5 @@ Partial Class Employee_Information_Form
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents dateOfBirth As TextBox
+    Friend WithEvents dataGridView As DataGridView
 End Class
