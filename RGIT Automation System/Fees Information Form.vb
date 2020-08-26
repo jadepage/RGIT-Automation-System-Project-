@@ -24,45 +24,32 @@
         Me.Hide()
     End Sub
 
+    'Adds the student fees
     Private Sub submitBtn_Click(sender As Object, e As EventArgs) Handles submitBtn.Click
         Try
             'Open database connection
             Database.OpenConnection()
 
             'Insert the user input into the db
-            Database.Sql = "INSERT INTO Student_Management 
+            Database.Sql = "INSERT INTO Fees_Management 
 
             (
+            feesID, 
             studentID, 
-            firstName, 
-            middleName, 
-            lastName, 
-            dateOfBirth, 
-            mothersName,
-            fathersName,
-            bloodGroup,
-            localAddress,
-            permamanentAddress,
-            gender,
-            category,
-            email,
-            contactNumber 
+            paymentType, 
+            feesDate, 
+            feesMonth, 
+            feesYear,
+            feesAmount
             ) 
             values 
-            (' " & Val(studentID.Text) & "', 
-            ' " & firstName.Text & "', 
-            '" & middleName.Text & "' , 
-            '" & lastName.Text & "', 
-            '" & dateOfBirth.Text & "', 
-            '" & mothersName.Text & "',
-            '" & fathersName.Text & "', 
-            '" & bloodGroup.Text & "', 
-            '" & localAddress.Text & "', 
-            '" & permamanentAddress.Text & "', 
-            '" & gender.Text & "', 
-            '" & category.Text & "', 
-            '" & email.Text & "',
-            '" & Val(contactNumber.Text) & "'
+            (' " & Val(feesID.Text) & "', 
+            ' " & Val(studentID.Text) & "', 
+            '" & paymentType.Text & "' , 
+            '" & feesDate.Text & "', 
+            '" & feesMonth.Text & "', 
+            '" & feesYear.Text & "',
+            '" & Val(feesAmount.Text) & "'
             )"
 
             'Handles the database connection and SQL 

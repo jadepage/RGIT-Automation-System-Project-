@@ -59,10 +59,12 @@ Partial Class Fees_Information_Form
         Me.submitBtn = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.MenuStrip2.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip2
@@ -192,7 +194,9 @@ Partial Class Fees_Information_Form
         '
         'feesMonth
         '
+        Me.feesMonth.AutoCompleteCustomSource.AddRange(New String() {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"})
         Me.feesMonth.FormattingEnabled = True
+        Me.feesMonth.Items.AddRange(New Object() {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"})
         Me.feesMonth.Location = New System.Drawing.Point(251, 181)
         Me.feesMonth.Name = "feesMonth"
         Me.feesMonth.Size = New System.Drawing.Size(145, 21)
@@ -200,7 +204,9 @@ Partial Class Fees_Information_Form
         '
         'feesYear
         '
+        Me.feesYear.AutoCompleteCustomSource.AddRange(New String() {"1'st Year", "2'nd Year", "3'rd Year"})
         Me.feesYear.FormattingEnabled = True
+        Me.feesYear.Items.AddRange(New Object() {"1st Year", "2nd Year", "3rd Year"})
         Me.feesYear.Location = New System.Drawing.Point(251, 216)
         Me.feesYear.Name = "feesYear"
         Me.feesYear.Size = New System.Drawing.Size(145, 21)
@@ -208,8 +214,9 @@ Partial Class Fees_Information_Form
         '
         'feesDate
         '
-        Me.feesDate.AutoCompleteCustomSource.AddRange(New String() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"})
+        Me.feesDate.AutoCompleteCustomSource.AddRange(New String() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"})
         Me.feesDate.FormattingEnabled = True
+        Me.feesDate.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"})
         Me.feesDate.Location = New System.Drawing.Point(251, 145)
         Me.feesDate.Name = "feesDate"
         Me.feesDate.Size = New System.Drawing.Size(145, 21)
@@ -219,6 +226,7 @@ Partial Class Fees_Information_Form
         '
         Me.paymentType.AutoCompleteCustomSource.AddRange(New String() {"Cash", "EFT", "Cheque"})
         Me.paymentType.FormattingEnabled = True
+        Me.paymentType.Items.AddRange(New Object() {"Cash", "EFT", "Cheque"})
         Me.paymentType.Location = New System.Drawing.Point(251, 106)
         Me.paymentType.Name = "paymentType"
         Me.paymentType.Size = New System.Drawing.Size(145, 21)
@@ -374,7 +382,7 @@ Partial Class Fees_Information_Form
         Me.Label16.AutoSize = True
         Me.Label16.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.Label16.Font = New System.Drawing.Font("Times New Roman", 21.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(281, 62)
+        Me.Label16.Location = New System.Drawing.Point(310, 62)
         Me.Label16.Name = "Label16"
         Me.Label16.Padding = New System.Windows.Forms.Padding(50, 0, 50, 20)
         Me.Label16.Size = New System.Drawing.Size(405, 52)
@@ -389,11 +397,20 @@ Partial Class Fees_Information_Form
         Me.Label17.Size = New System.Drawing.Size(0, 13)
         Me.Label17.TabIndex = 18
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(144, 715)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(727, 224)
+        Me.DataGridView1.TabIndex = 21
+        '
         'Fees_Information_Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1018, 736)
+        Me.ClientSize = New System.Drawing.Size(1018, 966)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.Label17)
@@ -409,6 +426,7 @@ Partial Class Fees_Information_Form
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -451,4 +469,5 @@ Partial Class Fees_Information_Form
     Friend WithEvents submitBtn As Button
     Friend WithEvents Label16 As Label
     Friend WithEvents Label17 As Label
+    Friend WithEvents DataGridView1 As DataGridView
 End Class
