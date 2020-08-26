@@ -42,6 +42,7 @@ Partial Class Salary_Information_Form
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.salaryDate = New System.Windows.Forms.DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.employeeAmount = New System.Windows.Forms.TextBox()
@@ -58,7 +59,7 @@ Partial Class Salary_Information_Form
         Me.saveBtn = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.salaryDate = New System.Windows.Forms.DateTimePicker()
+        Me.updateBtn = New System.Windows.Forms.Button()
         Me.MenuStrip2.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -232,6 +233,13 @@ Partial Class Salary_Information_Form
         Me.GroupBox3.TabIndex = 16
         Me.GroupBox3.TabStop = False
         '
+        'salaryDate
+        '
+        Me.salaryDate.Location = New System.Drawing.Point(115, 19)
+        Me.salaryDate.Name = "salaryDate"
+        Me.salaryDate.Size = New System.Drawing.Size(210, 20)
+        Me.salaryDate.TabIndex = 1
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -310,20 +318,21 @@ Partial Class Salary_Information_Form
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.updateBtn)
         Me.GroupBox1.Controls.Add(Me.exitBtn)
         Me.GroupBox1.Controls.Add(Me.printBtn)
         Me.GroupBox1.Controls.Add(Me.deleteBtn)
         Me.GroupBox1.Controls.Add(Me.searchBtn)
         Me.GroupBox1.Controls.Add(Me.saveBtn)
-        Me.GroupBox1.Location = New System.Drawing.Point(153, 285)
+        Me.GroupBox1.Location = New System.Drawing.Point(83, 285)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(416, 44)
+        Me.GroupBox1.Size = New System.Drawing.Size(502, 54)
         Me.GroupBox1.TabIndex = 13
         Me.GroupBox1.TabStop = False
         '
         'exitBtn
         '
-        Me.exitBtn.Location = New System.Drawing.Point(249, 15)
+        Me.exitBtn.Location = New System.Drawing.Point(332, 15)
         Me.exitBtn.Name = "exitBtn"
         Me.exitBtn.Size = New System.Drawing.Size(75, 23)
         Me.exitBtn.TabIndex = 13
@@ -332,7 +341,7 @@ Partial Class Salary_Information_Form
         '
         'printBtn
         '
-        Me.printBtn.Location = New System.Drawing.Point(330, 15)
+        Me.printBtn.Location = New System.Drawing.Point(413, 15)
         Me.printBtn.Name = "printBtn"
         Me.printBtn.Size = New System.Drawing.Size(75, 23)
         Me.printBtn.TabIndex = 4
@@ -341,7 +350,7 @@ Partial Class Salary_Information_Form
         '
         'deleteBtn
         '
-        Me.deleteBtn.Location = New System.Drawing.Point(168, 15)
+        Me.deleteBtn.Location = New System.Drawing.Point(251, 15)
         Me.deleteBtn.Name = "deleteBtn"
         Me.deleteBtn.Size = New System.Drawing.Size(75, 23)
         Me.deleteBtn.TabIndex = 3
@@ -350,7 +359,7 @@ Partial Class Salary_Information_Form
         '
         'searchBtn
         '
-        Me.searchBtn.Location = New System.Drawing.Point(87, 15)
+        Me.searchBtn.Location = New System.Drawing.Point(170, 15)
         Me.searchBtn.Name = "searchBtn"
         Me.searchBtn.Size = New System.Drawing.Size(75, 23)
         Me.searchBtn.TabIndex = 1
@@ -386,12 +395,14 @@ Partial Class Salary_Information_Form
         Me.Label17.Size = New System.Drawing.Size(0, 13)
         Me.Label17.TabIndex = 21
         '
-        'salaryDate
+        'updateBtn
         '
-        Me.salaryDate.Location = New System.Drawing.Point(115, 19)
-        Me.salaryDate.Name = "salaryDate"
-        Me.salaryDate.Size = New System.Drawing.Size(210, 20)
-        Me.salaryDate.TabIndex = 1
+        Me.updateBtn.Location = New System.Drawing.Point(89, 15)
+        Me.updateBtn.Name = "updateBtn"
+        Me.updateBtn.Size = New System.Drawing.Size(75, 23)
+        Me.updateBtn.TabIndex = 14
+        Me.updateBtn.Text = "UPDATE"
+        Me.updateBtn.UseVisualStyleBackColor = True
         '
         'Salary_Information_Form
         '
@@ -458,4 +469,5 @@ Partial Class Salary_Information_Form
     Friend WithEvents employeeMonth As ComboBox
     Friend WithEvents dataGridView As DataGridView
     Friend WithEvents salaryDate As DateTimePicker
+    Friend WithEvents updateBtn As Button
 End Class
