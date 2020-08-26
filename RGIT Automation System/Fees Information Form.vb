@@ -85,6 +85,34 @@
 
         Catch ex As Exception
             MsgBox(ex.Message)
+
+        Finally
+            Database.Connection.Close()
+        End Try
+    End Sub
+
+    Private Sub updateBtn_Click(sender As Object, e As EventArgs) Handles updateBtn.Click
+        Try
+            'Open database connection
+            Database.OpenConnection()
+
+            'Update the  data
+            Database.Sql = "update Fees_Management set 
+            [feesID]='" & Val(feesID.Text) & "', 
+            [studentID] ='" & Val(studentID.Text) & "', 
+            [paymentType] ='" & paymentType.Text & "', 
+            [feesDate] ='" & feesYear.Text & "',
+            [feesMonth] ='" & Val(feesAmount.Text) & "'"
+
+            'Handles the database connection and SQL 
+            Database.HandleSQL_And_Connection()
+
+            'Check if the record was updated successfully
+            Database.CheckUpdateSuccess()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
         Finally
             Database.Connection.Close()
         End Try
