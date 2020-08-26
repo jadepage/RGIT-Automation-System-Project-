@@ -33,22 +33,21 @@ Partial Class Salary_Information_Form
         Me.AboutDeveloperToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.DataGridViewOutput = New System.Windows.Forms.DataGridView()
+        Me.dataGridView = New System.Windows.Forms.DataGridView()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.Month = New System.Windows.Forms.ComboBox()
-        Me.DueAmount = New System.Windows.Forms.TextBox()
-        Me.IsPaid = New System.Windows.Forms.ComboBox()
+        Me.employeeMonth = New System.Windows.Forms.ComboBox()
+        Me.dueAmount = New System.Windows.Forms.TextBox()
+        Me.employeeIsPaid = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.CurrentDate = New System.Windows.Forms.DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.Amount = New System.Windows.Forms.TextBox()
-        Me.EmployeeID = New System.Windows.Forms.ComboBox()
+        Me.employeeAmount = New System.Windows.Forms.TextBox()
+        Me.employeeID = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.SalaryID = New System.Windows.Forms.TextBox()
+        Me.salaryID = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -59,9 +58,10 @@ Partial Class Salary_Information_Form
         Me.saveBtn = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
+        Me.salaryDate = New System.Windows.Forms.DateTimePicker()
         Me.MenuStrip2.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.DataGridViewOutput, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -133,7 +133,7 @@ Partial Class Salary_Information_Form
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.DataGridViewOutput)
+        Me.GroupBox2.Controls.Add(Me.dataGridView)
         Me.GroupBox2.Controls.Add(Me.GroupBox5)
         Me.GroupBox2.Controls.Add(Me.GroupBox3)
         Me.GroupBox2.Controls.Add(Me.GroupBox4)
@@ -145,19 +145,19 @@ Partial Class Salary_Information_Form
         Me.GroupBox2.TabIndex = 23
         Me.GroupBox2.TabStop = False
         '
-        'DataGridViewOutput
+        'dataGridView
         '
-        Me.DataGridViewOutput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewOutput.Location = New System.Drawing.Point(17, 345)
-        Me.DataGridViewOutput.Name = "DataGridViewOutput"
-        Me.DataGridViewOutput.Size = New System.Drawing.Size(693, 150)
-        Me.DataGridViewOutput.TabIndex = 17
+        Me.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dataGridView.Location = New System.Drawing.Point(17, 345)
+        Me.dataGridView.Name = "dataGridView"
+        Me.dataGridView.Size = New System.Drawing.Size(693, 150)
+        Me.dataGridView.TabIndex = 17
         '
         'GroupBox5
         '
-        Me.GroupBox5.Controls.Add(Me.Month)
-        Me.GroupBox5.Controls.Add(Me.DueAmount)
-        Me.GroupBox5.Controls.Add(Me.IsPaid)
+        Me.GroupBox5.Controls.Add(Me.employeeMonth)
+        Me.GroupBox5.Controls.Add(Me.dueAmount)
+        Me.GroupBox5.Controls.Add(Me.employeeIsPaid)
         Me.GroupBox5.Controls.Add(Me.Label1)
         Me.GroupBox5.Controls.Add(Me.Label2)
         Me.GroupBox5.Controls.Add(Me.Label3)
@@ -168,28 +168,32 @@ Partial Class Salary_Information_Form
         Me.GroupBox5.TabIndex = 16
         Me.GroupBox5.TabStop = False
         '
-        'Month
+        'employeeMonth
         '
-        Me.Month.FormattingEnabled = True
-        Me.Month.Location = New System.Drawing.Point(136, 25)
-        Me.Month.Name = "Month"
-        Me.Month.Size = New System.Drawing.Size(145, 21)
-        Me.Month.TabIndex = 16
+        Me.employeeMonth.AutoCompleteCustomSource.AddRange(New String() {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"})
+        Me.employeeMonth.FormattingEnabled = True
+        Me.employeeMonth.Items.AddRange(New Object() {"Jan", "Feb", "Mar", "Apr", "May", "Jun ", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"})
+        Me.employeeMonth.Location = New System.Drawing.Point(136, 25)
+        Me.employeeMonth.Name = "employeeMonth"
+        Me.employeeMonth.Size = New System.Drawing.Size(145, 21)
+        Me.employeeMonth.TabIndex = 16
         '
-        'DueAmount
+        'dueAmount
         '
-        Me.DueAmount.Location = New System.Drawing.Point(136, 106)
-        Me.DueAmount.Name = "DueAmount"
-        Me.DueAmount.Size = New System.Drawing.Size(145, 20)
-        Me.DueAmount.TabIndex = 15
+        Me.dueAmount.Location = New System.Drawing.Point(136, 106)
+        Me.dueAmount.Name = "dueAmount"
+        Me.dueAmount.Size = New System.Drawing.Size(145, 20)
+        Me.dueAmount.TabIndex = 15
         '
-        'IsPaid
+        'employeeIsPaid
         '
-        Me.IsPaid.FormattingEnabled = True
-        Me.IsPaid.Location = New System.Drawing.Point(136, 68)
-        Me.IsPaid.Name = "IsPaid"
-        Me.IsPaid.Size = New System.Drawing.Size(145, 21)
-        Me.IsPaid.TabIndex = 11
+        Me.employeeIsPaid.AutoCompleteCustomSource.AddRange(New String() {"Yes", "No"})
+        Me.employeeIsPaid.FormattingEnabled = True
+        Me.employeeIsPaid.Items.AddRange(New Object() {"Yes", "No"})
+        Me.employeeIsPaid.Location = New System.Drawing.Point(136, 68)
+        Me.employeeIsPaid.Name = "employeeIsPaid"
+        Me.employeeIsPaid.Size = New System.Drawing.Size(145, 21)
+        Me.employeeIsPaid.TabIndex = 11
         '
         'Label1
         '
@@ -220,20 +224,13 @@ Partial Class Salary_Information_Form
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.CurrentDate)
+        Me.GroupBox3.Controls.Add(Me.salaryDate)
         Me.GroupBox3.Controls.Add(Me.Label4)
         Me.GroupBox3.Location = New System.Drawing.Point(182, 35)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(347, 54)
         Me.GroupBox3.TabIndex = 16
         Me.GroupBox3.TabStop = False
-        '
-        'CurrentDate
-        '
-        Me.CurrentDate.Location = New System.Drawing.Point(101, 19)
-        Me.CurrentDate.Name = "CurrentDate"
-        Me.CurrentDate.Size = New System.Drawing.Size(224, 20)
-        Me.CurrentDate.TabIndex = 1
         '
         'Label4
         '
@@ -246,10 +243,10 @@ Partial Class Salary_Information_Form
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.Amount)
-        Me.GroupBox4.Controls.Add(Me.EmployeeID)
+        Me.GroupBox4.Controls.Add(Me.employeeAmount)
+        Me.GroupBox4.Controls.Add(Me.employeeID)
         Me.GroupBox4.Controls.Add(Me.Label9)
-        Me.GroupBox4.Controls.Add(Me.SalaryID)
+        Me.GroupBox4.Controls.Add(Me.salaryID)
         Me.GroupBox4.Controls.Add(Me.Label6)
         Me.GroupBox4.Controls.Add(Me.Label5)
         Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -259,20 +256,22 @@ Partial Class Salary_Information_Form
         Me.GroupBox4.TabIndex = 15
         Me.GroupBox4.TabStop = False
         '
-        'Amount
+        'employeeAmount
         '
-        Me.Amount.Location = New System.Drawing.Point(136, 106)
-        Me.Amount.Name = "Amount"
-        Me.Amount.Size = New System.Drawing.Size(145, 20)
-        Me.Amount.TabIndex = 15
+        Me.employeeAmount.Location = New System.Drawing.Point(136, 106)
+        Me.employeeAmount.Name = "employeeAmount"
+        Me.employeeAmount.Size = New System.Drawing.Size(145, 20)
+        Me.employeeAmount.TabIndex = 15
         '
-        'EmployeeID
+        'employeeID
         '
-        Me.EmployeeID.FormattingEnabled = True
-        Me.EmployeeID.Location = New System.Drawing.Point(136, 68)
-        Me.EmployeeID.Name = "EmployeeID"
-        Me.EmployeeID.Size = New System.Drawing.Size(145, 21)
-        Me.EmployeeID.TabIndex = 11
+        Me.employeeID.AutoCompleteCustomSource.AddRange(New String() {"12", "12", "412", "123", "123", "12", "1123"})
+        Me.employeeID.FormattingEnabled = True
+        Me.employeeID.Items.AddRange(New Object() {"Full Time", "Part Time"})
+        Me.employeeID.Location = New System.Drawing.Point(136, 68)
+        Me.employeeID.Name = "employeeID"
+        Me.employeeID.Size = New System.Drawing.Size(145, 21)
+        Me.employeeID.TabIndex = 11
         '
         'Label9
         '
@@ -283,12 +282,13 @@ Partial Class Salary_Information_Form
         Me.Label9.TabIndex = 10
         Me.Label9.Text = "EMPLOYEE ID"
         '
-        'SalaryID
+        'salaryID
         '
-        Me.SalaryID.Location = New System.Drawing.Point(136, 28)
-        Me.SalaryID.Name = "SalaryID"
-        Me.SalaryID.Size = New System.Drawing.Size(145, 20)
-        Me.SalaryID.TabIndex = 4
+        Me.salaryID.AutoCompleteCustomSource.AddRange(New String() {"1", "2", "3"})
+        Me.salaryID.Location = New System.Drawing.Point(136, 28)
+        Me.salaryID.Name = "salaryID"
+        Me.salaryID.Size = New System.Drawing.Size(145, 20)
+        Me.salaryID.TabIndex = 4
         '
         'Label6
         '
@@ -386,6 +386,13 @@ Partial Class Salary_Information_Form
         Me.Label17.Size = New System.Drawing.Size(0, 13)
         Me.Label17.TabIndex = 21
         '
+        'salaryDate
+        '
+        Me.salaryDate.Location = New System.Drawing.Point(115, 19)
+        Me.salaryDate.Name = "salaryDate"
+        Me.salaryDate.Size = New System.Drawing.Size(210, 20)
+        Me.salaryDate.TabIndex = 1
+        '
         'Salary_Information_Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -401,7 +408,7 @@ Partial Class Salary_Information_Form
         Me.MenuStrip2.ResumeLayout(False)
         Me.MenuStrip2.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
-        CType(Me.DataGridViewOutput, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
@@ -427,10 +434,10 @@ Partial Class Salary_Information_Form
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents Amount As TextBox
-    Friend WithEvents EmployeeID As ComboBox
+    Friend WithEvents employeeAmount As TextBox
+    Friend WithEvents employeeID As ComboBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents SalaryID As TextBox
+    Friend WithEvents salaryID As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
@@ -443,12 +450,12 @@ Partial Class Salary_Information_Form
     Friend WithEvents Label16 As Label
     Friend WithEvents Label17 As Label
     Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents DueAmount As TextBox
-    Friend WithEvents IsPaid As ComboBox
+    Friend WithEvents dueAmount As TextBox
+    Friend WithEvents employeeIsPaid As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents CurrentDate As DateTimePicker
-    Friend WithEvents Month As ComboBox
-    Friend WithEvents DataGridViewOutput As DataGridView
+    Friend WithEvents employeeMonth As ComboBox
+    Friend WithEvents dataGridView As DataGridView
+    Friend WithEvents salaryDate As DateTimePicker
 End Class

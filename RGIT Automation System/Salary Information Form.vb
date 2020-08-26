@@ -35,6 +35,46 @@
 
     End Sub
 
+    'Adds a salary of the employee
+    Private Sub saveBtn_Click(sender As Object, e As EventArgs) Handles saveBtn.Click
+        Try
+            'Open database connection
+            Database.OpenConnection()
 
+            'Insert the user input into the db
+            Database.Sql = "INSERT INTO Manage_Salary 
+
+            (
+            employeeID,
+            salaryID,
+            salaryDate,
+            employeeAmount, 
+            employeeMonth, 
+            employeeIsPaid,
+            dueAmount
+            ) 
+            values 
+            (' " & Val(employeeID.Text) & "', 
+            ' " & Val(salaryID.Text) & "', 
+            ' " & salaryDate.Value.ToShortDateString & "', 
+            '" & Val(employeeAmount.Text) & "', 
+            '" & employeeMonth.Text & "' , 
+            '" & employeeIsPaid.Text & "', 
+            '" & Val(dueAmount.Text) & "'
+            )"
+
+            'Handles the database connection and SQL 
+            Database.HandleSQL_And_Connection()
+
+            'Check if data was successfully submitted 
+            Database.CheckDataSuccess()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        Finally
+            Database.Connection.Close()
+        End Try
+    End Sub
 End Class
 
