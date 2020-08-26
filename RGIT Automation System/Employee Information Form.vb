@@ -37,7 +37,8 @@
             (
             employeeID, 
             employeeTitle, 
-            firstName, 
+            firstName,
+            lastName,
             dateOfBirth, 
             mobileNumber, 
             phoneNumber,
@@ -51,6 +52,7 @@
             (' " & Val(employeeID.Text) & "', 
             ' " & employeeTitle.Text & "', 
             '" & firstName.Text & "' , 
+            '" & lastName.Text & "' , 
             '" & dateOfBirth.Text & "', 
             '" & Val(mobileNumber.Text) & "', 
             '" & Val(phoneNumber.Text) & "',
@@ -92,6 +94,40 @@
 
         Catch ex As Exception
             MsgBox(ex.Message)
+        Finally
+            Database.Connection.Close()
+        End Try
+    End Sub
+
+    'Edit the existing employee
+    Private Sub updateBtn_Click(sender As Object, e As EventArgs) Handles updateBtn.Click
+        Try
+            'Open database connection
+            Database.OpenConnection()
+
+            'Update the  data
+            Database.Sql = "update Employee_Faculty set 
+            [employeeID] ='" & Val(employeeID.Text) & "', 
+            [employeeTitle] ='" & employeeTitle.Text & "', 
+            [firstName] ='" & firstName.Text & "', 
+            [lastName] ='" & lastName.Text & "', 
+            [mobileNumber] ='" & Val(mobileNumber.Text) & "',
+            [phoneNumber] ='" & Val(phoneNumber.Text) & "', 
+            [employeeEmail] ='" & email.Text & "',
+            [permanentAddress] ='" & permanentAddress.Text & "', 
+            [localAddress] ='" & localAddress.Text & "', 
+            [employeeType] ='" & employeeType.Text & "',
+            [salary] ='" & Val(salary.Text) & "'"
+
+            'Handles the database connection and SQL 
+            Database.HandleSQL_And_Connection()
+
+            'Check if the record was updated successfully
+            Database.CheckUpdateSuccess()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
         Finally
             Database.Connection.Close()
         End Try
