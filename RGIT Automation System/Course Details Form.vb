@@ -69,4 +69,57 @@
 
     End Sub
 
+    'Outputs the data from the database to the data grid
+    Private Sub findBtn_Click(sender As Object, e As EventArgs) Handles findBtn.Click
+
+        Try
+            'Open database connection
+            Database.OpenConnection()
+
+            'Database table that's being accessed
+            Database.Sql = "select * from Manage_Courses "
+
+            'Handles the database connection and SQL 
+            Database.HandleSQL_And_Connection()
+
+            'Select DataAdapter command, fill and display the data to the data grid view
+            dataGridView.DataSource = Database.DataTable
+            Database.DisplayData()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            Database.Connection.Close()
+        End Try
+    End Sub
+
+    'Edit the existing course
+    Private Sub updateBtn_Click(sender As Object, e As EventArgs) Handles updateBtn.Click
+
+        Try
+            'Open database connection
+            Database.OpenConnection()
+
+            'Update the  data
+            Database.Sql = "update Manage_Courses set 
+            [courseID] ='" & Val(courseID.Text) & "', 
+            [courseTitle] ='" & courseTitle.Text & "', 
+            [courseName] ='" & courseName.Text & "', 
+            [courseCode] ='" & Val(courseCode.Text) & "', 
+            [courseFee] ='" & Val(courseFee.Text) & "',
+            [courseDuration] ='" & courseDuration.Text & "'"
+
+            'Handles the database connection and SQL 
+            Database.HandleSQL_And_Connection()
+
+            'Check if the record was updated successfully
+            Database.CheckUpdateSuccess()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        Finally
+            Database.Connection.Close()
+        End Try
+    End Sub
 End Class

@@ -54,9 +54,11 @@ Partial Class Course_Details_Form
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.dataGridView = New System.Windows.Forms.DataGridView()
         Me.MenuStrip2.SuspendLayout()
         Me.courseDetailGroupBox.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.dataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip2
@@ -320,11 +322,20 @@ Partial Class Course_Details_Form
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Course ID"
         '
+        'dataGridView
+        '
+        Me.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dataGridView.Location = New System.Drawing.Point(155, 535)
+        Me.dataGridView.Name = "dataGridView"
+        Me.dataGridView.Size = New System.Drawing.Size(551, 150)
+        Me.dataGridView.TabIndex = 6
+        '
         'Course_Details_Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(924, 536)
+        Me.ClientSize = New System.Drawing.Size(924, 717)
+        Me.Controls.Add(Me.dataGridView)
         Me.Controls.Add(Me.courseDetailGroupBox)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip2)
@@ -336,6 +347,7 @@ Partial Class Course_Details_Form
         Me.courseDetailGroupBox.ResumeLayout(False)
         Me.courseDetailGroupBox.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
+        CType(Me.dataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -373,4 +385,5 @@ Partial Class Course_Details_Form
     Friend WithEvents updateBtn As Button
     Friend WithEvents findBtn As Button
     Friend WithEvents submitBtn As Button
+    Friend WithEvents dataGridView As DataGridView
 End Class
