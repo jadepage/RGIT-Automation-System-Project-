@@ -55,7 +55,7 @@ Partial Class Student_Information_Form
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.dateOfBirth = New System.Windows.Forms.TextBox()
+        Me.dateOfBirth = New System.Windows.Forms.DateTimePicker()
         Me.lastName = New System.Windows.Forms.TextBox()
         Me.middleName = New System.Windows.Forms.TextBox()
         Me.firstName = New System.Windows.Forms.TextBox()
@@ -94,7 +94,7 @@ Partial Class Student_Information_Form
         Me.MenuStrip2.Name = "MenuStrip2"
         Me.MenuStrip2.Size = New System.Drawing.Size(926, 24)
         Me.MenuStrip2.TabIndex = 2
-        Me.MenuStrip2.Text = "MenuStrip2"
+        Me.MenuStrip2.Text = "MenuStrip"
         '
         'StudentInformationToolStripMenuItem
         '
@@ -387,7 +387,7 @@ Partial Class Student_Information_Form
         Me.dateOfBirth.Location = New System.Drawing.Point(159, 142)
         Me.dateOfBirth.Name = "dateOfBirth"
         Me.dateOfBirth.Size = New System.Drawing.Size(145, 20)
-        Me.dateOfBirth.TabIndex = 7
+        Me.dateOfBirth.TabIndex = 8
         '
         'lastName
         '
@@ -655,5 +655,5 @@ Partial Class Student_Information_Form
     Friend WithEvents category As ComboBox
     Friend WithEvents gender As ComboBox
     Friend WithEvents DataGridView As DataGridView
-    Friend WithEvents dateOfBirth As TextBox
+    Friend WithEvents dateOfBirth As DateTimePicker
 End Class

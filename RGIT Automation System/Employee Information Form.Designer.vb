@@ -45,7 +45,7 @@ Partial Class Employee_Information_Form
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.salary = New System.Windows.Forms.TextBox()
         Me.employeeType = New System.Windows.Forms.TextBox()
-        Me.designation = New System.Windows.Forms.TextBox()
+        Me.employeeDesignation = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -62,6 +62,7 @@ Partial Class Employee_Information_Form
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.dateOfBirth = New System.Windows.Forms.DateTimePicker()
         Me.lastName = New System.Windows.Forms.TextBox()
         Me.firstName = New System.Windows.Forms.TextBox()
         Me.employeeTitle = New System.Windows.Forms.TextBox()
@@ -73,7 +74,6 @@ Partial Class Employee_Information_Form
         Me.employeeID = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dataGridView = New System.Windows.Forms.DataGridView()
-        Me.dateOfBirth = New System.Windows.Forms.DateTimePicker()
         Me.MenuStrip2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -254,7 +254,7 @@ Partial Class Employee_Information_Form
         '
         Me.GroupBox7.Controls.Add(Me.salary)
         Me.GroupBox7.Controls.Add(Me.employeeType)
-        Me.GroupBox7.Controls.Add(Me.designation)
+        Me.GroupBox7.Controls.Add(Me.employeeDesignation)
         Me.GroupBox7.Controls.Add(Me.Label13)
         Me.GroupBox7.Controls.Add(Me.Label14)
         Me.GroupBox7.Controls.Add(Me.Label15)
@@ -280,12 +280,12 @@ Partial Class Employee_Information_Form
         Me.employeeType.Size = New System.Drawing.Size(145, 20)
         Me.employeeType.TabIndex = 9
         '
-        'designation
+        'employeeDesignation
         '
-        Me.designation.Location = New System.Drawing.Point(171, 27)
-        Me.designation.Name = "designation"
-        Me.designation.Size = New System.Drawing.Size(145, 20)
-        Me.designation.TabIndex = 8
+        Me.employeeDesignation.Location = New System.Drawing.Point(171, 27)
+        Me.employeeDesignation.Name = "employeeDesignation"
+        Me.employeeDesignation.Size = New System.Drawing.Size(145, 20)
+        Me.employeeDesignation.TabIndex = 8
         '
         'Label13
         '
@@ -444,6 +444,13 @@ Partial Class Employee_Information_Form
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Personal Details"
         '
+        'dateOfBirth
+        '
+        Me.dateOfBirth.Location = New System.Drawing.Point(158, 141)
+        Me.dateOfBirth.Name = "dateOfBirth"
+        Me.dateOfBirth.Size = New System.Drawing.Size(145, 20)
+        Me.dateOfBirth.TabIndex = 7
+        '
         'lastName
         '
         Me.lastName.Location = New System.Drawing.Point(159, 103)
@@ -536,13 +543,6 @@ Partial Class Employee_Information_Form
         Me.dataGridView.Size = New System.Drawing.Size(720, 193)
         Me.dataGridView.TabIndex = 16
         '
-        'dateOfBirth
-        '
-        Me.dateOfBirth.Location = New System.Drawing.Point(158, 141)
-        Me.dateOfBirth.Name = "dateOfBirth"
-        Me.dateOfBirth.Size = New System.Drawing.Size(145, 20)
-        Me.dateOfBirth.TabIndex = 7
-        '
         'Employee_Information_Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -616,7 +616,7 @@ Partial Class Employee_Information_Form
     Friend WithEvents GroupBox7 As GroupBox
     Friend WithEvents salary As TextBox
     Friend WithEvents employeeType As TextBox
-    Friend WithEvents designation As TextBox
+    Friend WithEvents employeeDesignation As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents Label15 As Label

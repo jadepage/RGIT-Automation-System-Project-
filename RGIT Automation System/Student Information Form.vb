@@ -4,24 +4,43 @@
     Dim Database As New Database
 
     'Handles The Menu
-    Private Sub SalaryDetailsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalaryDetailsToolStripMenuItem.Click
-        Salary_Information_Form.Show()
-        Me.Hide()
-    End Sub
-    Private Sub EmployeeInformationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmployeeInformationToolStripMenuItem.Click
-        Employee_Information_Form.Show()
-        Me.Hide()
+    Public Sub ButtonClicks_Click(sender As System.Object, e As System.EventArgs) Handles StudentInformationToolStripMenuItem.Click,
+            SalaryDetailsToolStripMenuItem.Click,
+            EmployeeInformationToolStripMenuItem.Click,
+            CourseDetailToolStripMenuItem.Click,
+            FeeStructuresToolStripMenuItem.Click,
+            AboutDeveloperToolStripMenuItem.Click
+
+        Try
+            'Check each case of what button was clicked
+            Select Case True
+                'Shows the Employee Info Form
+                Case sender Is EmployeeInformationToolStripMenuItem
+                    Employee_Information_Form.Show()
+                    Me.Hide()
+                'Shows the Salary Details Info Form
+                Case sender Is SalaryDetailsToolStripMenuItem
+                    Salary_Information_Form.Show()
+                    Me.Hide()
+                'Shows the Course Details Info Form
+                Case sender Is CourseDetailToolStripMenuItem
+                    Course_Details_Form.Show()
+                    Me.Hide()
+                'Shows the Fee Structure Form
+                Case sender Is FeeStructuresToolStripMenuItem
+                    Fees_Information_Form.Show()
+                    Me.Hide()
+                'Shows the About Developer Form
+                Case sender Is AboutDeveloperToolStripMenuItem
+                    About_Developer_Form.Show()
+                    About_Developer_Form2.Show()
+                    Me.Hide()
+            End Select
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
-    Public Sub FeeStructuresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FeeStructuresToolStripMenuItem.Click
-        Fees_Information_Form.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub CourseDetailToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CourseDetailToolStripMenuItem.Click
-        Course_Details_Form.Show()
-        Me.Hide()
-    End Sub
 
     'Adds a new student
     Private Sub submitBtn_Click(sender As Object, e As EventArgs) Handles submitBtn.Click
@@ -54,7 +73,7 @@
             ' " & firstName.Text & "', 
             '" & middleName.Text & "' , 
             '" & lastName.Text & "', 
-            '" & dateOfBirth.Text & "', 
+            '" & dateOfBirth.Value.ToShortDateString & "', 
             '" & mothersName.Text & "',
             '" & fathersName.Text & "', 
             '" & bloodGroup.Text & "', 
@@ -117,7 +136,7 @@
             [firstName] ='" & firstName.Text & "', 
             [middleName] ='" & middleName.Text & "', 
             [lastName] ='" & lastName.Text & "',
-            [dateOfBirth] ='" & dateOfBirth.Text & "', 
+            [dateOfBirth] ='" & dateOfBirth.Value.ToShortDateString & "', 
             [mothersName] ='" & mothersName.Text & "',
             [fathersName] ='" & fathersName.Text & "', 
             [bloodGroup] ='" & bloodGroup.Text & "', 

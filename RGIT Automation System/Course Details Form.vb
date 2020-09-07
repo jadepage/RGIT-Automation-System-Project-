@@ -3,30 +3,43 @@
     'Instantiating the database class 
     Dim Database As New Database
 
-    'Handles the menu
-    Private Sub StudentInformationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StudentInformationToolStripMenuItem.Click
-        Student_Information_Form.Show()
-        Me.Hide()
-    End Sub
 
-    Private Sub SalaryDetailsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalaryDetailsToolStripMenuItem.Click
-        Salary_Information_Form.Show()
-        Me.Hide()
-    End Sub
-    Private Sub EmployeeInformationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmployeeInformationToolStripMenuItem.Click
-        Employee_Information_Form.Show()
-        Me.Hide()
-    End Sub
+    'Handles The Menu
+    Public Sub ButtonClicks_Click(sender As System.Object, e As System.EventArgs) Handles StudentInformationToolStripMenuItem.Click,
+            SalaryDetailsToolStripMenuItem.Click,
+            EmployeeInformationToolStripMenuItem.Click,
+            CourseDetailToolStripMenuItem.Click,
+            FeeStructuresToolStripMenuItem.Click,
+            AboutDeveloperToolStripMenuItem.Click
 
-    Public Sub FeeStructuresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FeeStructuresToolStripMenuItem.Click
-        Fees_Information_Form.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub AboutDeveloperToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutDeveloperToolStripMenuItem.Click
-        About_Developer_Form.Show()
-        About_Developer_Form2.ShowDialog()
-        Me.Hide()
+        Try
+            'Check each case of what button was clicked
+            Select Case True
+                'Shows the Employee Info Form
+                Case sender Is EmployeeInformationToolStripMenuItem
+                    Employee_Information_Form.Show()
+                    Me.Hide()
+                'Shows the Student Info Form
+                Case sender Is StudentInformationToolStripMenuItem
+                    Student_Information_Form.Show()
+                    Me.Hide()
+                'Shows the Salary Info Form
+                Case sender Is Salary_Information_Form
+                    Salary_Information_Form.Show()
+                    Me.Hide()
+                'Shows the Fee Structure Form
+                Case sender Is FeeStructuresToolStripMenuItem
+                    Fees_Information_Form.Show()
+                    Me.Hide()
+                'Shows the About Developer Form
+                Case sender Is AboutDeveloperToolStripMenuItem
+                    About_Developer_Form.Show()
+                    About_Developer_Form2.Show()
+                    Me.Hide()
+            End Select
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub submitBtn_Click(sender As Object, e As EventArgs) Handles submitBtn.Click
@@ -121,5 +134,9 @@
         Finally
             Database.Connection.Close()
         End Try
+    End Sub
+
+    Private Sub Course_Details_Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

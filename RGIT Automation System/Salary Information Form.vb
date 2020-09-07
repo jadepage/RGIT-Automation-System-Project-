@@ -8,24 +8,41 @@
     End Sub
 
     'Handles The Menu
-    Private Sub StudentInformationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StudentInformationToolStripMenuItem.Click
-        Student_Information_Form.Show()
-        Me.Hide()
-    End Sub
+    Public Sub ButtonClicks_Click(sender As System.Object, e As System.EventArgs) Handles StudentInformationToolStripMenuItem.Click,
+            SalaryDetailsToolStripMenuItem.Click,
+            EmployeeInformationToolStripMenuItem.Click,
+            CourseDetailToolStripMenuItem.Click,
+            FeeStructuresToolStripMenuItem.Click,
+            AboutDeveloperToolStripMenuItem.Click
 
-    Private Sub EmployeeInformationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmployeeInformationToolStripMenuItem.Click
-        Employee_Information_Form.Show()
-        Me.Hide()
-    End Sub
-
-    Public Sub FeeStructuresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FeeStructuresToolStripMenuItem.Click
-        Fees_Information_Form.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub CourseDetailToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CourseDetailToolStripMenuItem.Click
-        Course_Details_Form.Show()
-        Me.Hide()
+        Try
+            'Check each case of what button was clicked
+            Select Case True
+                'Shows the Employee Info Form
+                Case sender Is EmployeeInformationToolStripMenuItem
+                    Employee_Information_Form.Show()
+                    Me.Hide()
+                'Shows the Student Info Form
+                Case sender Is StudentInformationToolStripMenuItem
+                    Student_Information_Form.Show()
+                    Me.Hide()
+                'Shows the Course Details Info Form
+                Case sender Is CourseDetailToolStripMenuItem
+                    Course_Details_Form.Show()
+                    Me.Hide()
+                'Shows the Fee Structure Form
+                Case sender Is FeeStructuresToolStripMenuItem
+                    Fees_Information_Form.Show()
+                    Me.Hide()
+                'Shows the About Developer Form
+                Case sender Is AboutDeveloperToolStripMenuItem
+                    About_Developer_Form.Show()
+                    About_Developer_Form2.Show()
+                    Me.Hide()
+            End Select
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
 
@@ -73,7 +90,7 @@
             ) 
             values 
             (' " & Val(employeeID.Text) & "', 
-            ' " & Val(salaryID.Text) & "', 
+            ' " & salaryID.Text & "', 
             ' " & salaryDate.Value.ToShortDateString & "', 
             '" & Val(employeeAmount.Text) & "', 
             '" & employeeMonth.Text & "' , 
@@ -102,9 +119,9 @@
             Database.OpenConnection()
 
             'Update the  data
-            Database.Sql = "update Employee_Faculty set 
+            Database.Sql = "update Manage_Salary set 
             [employeeID] ='" & Val(employeeID.Text) & "', 
-            [salaryID] ='" & Val(salaryID.Text) & "', 
+            [salaryID] ='" & salaryID.Text & "', 
             [salaryDate] ='" & salaryDate.Value.ToShortDateString & "', 
             [employeeAmount] ='" & Val(employeeAmount.Text) & "', 
             [employeeMonth] ='" & employeeMonth.Text & "',
