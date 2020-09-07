@@ -1,7 +1,7 @@
 ﻿Public Class Database
 
     'Connection to the database
-    Public Property Connection() As New OleDb.OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\djfun\vb\RGIT_DB.mdb")
+    Public Property Connection() As New OleDb.OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\djfun\OneDrive\A-Richfield\512\Programming_512\Assignment\Database\Student_Management_Sytem.mdb")
 
     'Database command
     Public Property Cmd() As New OleDb.OleDbCommand
