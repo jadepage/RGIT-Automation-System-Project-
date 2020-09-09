@@ -94,6 +94,7 @@ Partial Class mainForm
         '
         Me.LoginPassword.Location = New System.Drawing.Point(173, 133)
         Me.LoginPassword.Name = "LoginPassword"
+        Me.LoginPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.LoginPassword.Size = New System.Drawing.Size(177, 26)
         Me.LoginPassword.TabIndex = 3
         '

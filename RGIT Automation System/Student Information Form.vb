@@ -3,6 +3,16 @@
     'Instantiating the database class 
     Dim Database As New Database
 
+    'Check if a student is logged in
+    Private Sub Student_Information_Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If mainForm.currentUser = "Student" Then
+            'Hide the submit btn
+            submitBtn.Hide()
+            'Hide the delete btn
+            deleteBtn.Hide()
+        End If
+    End Sub
+
     'Handles The Menu
     Public Sub ButtonClicks_Click(sender As System.Object, e As System.EventArgs) Handles StudentInformationToolStripMenuItem.Click,
             SalaryDetailsToolStripMenuItem.Click,
@@ -161,5 +171,29 @@
             Database.Connection.Close()
         End Try
     End Sub
+
+    Private Sub deleteBtn_Click(sender As Object, e As EventArgs) Handles deleteBtn.Click
+        Try
+            'Open database connection
+            Database.OpenConnection()
+
+            'Delete the  selected data
+            Database.Sql = "DELETE * FROM Student_Management WHERE studentID = '" & DataGridView.CurrentRow.Cells(0).Value & "'"
+
+
+            'Handles the database connection and SQL 
+            Database.HandleSQL_And_Connection()
+
+            'Check if the record was updated successfully
+            Database.CheckDeleteSuccess()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        Finally
+            Database.Connection.Close()
+        End Try
+    End Sub
+
 
 End Class

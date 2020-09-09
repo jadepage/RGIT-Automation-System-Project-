@@ -1,17 +1,37 @@
-﻿Public Class mainForm
-    Dim username As String
-    Dim pass As String
-    Dim correctName As String
-    Dim correctPass As String
+﻿
+Public Class mainForm
+    Dim username, pass As String
+    Dim adminName, adminPass As String
+    Dim studentName, studentPass As String
+
+
+    'Public variable to cehck who is logged in
+    Public Shared currentUser As String = ""
+
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles okBtn.Click
 
         Try
-            correctName = "Admin"
-            correctPass = "12345"
+            'Admin login details
+            adminName = "Admin"
+            adminPass = "12345"
+
+            'Student login details
+            studentName = "160202"
+            studentPass = "112233"
+
             username = LoginUserName.Text
             pass = LoginPassword.Text
-            If username = correctName And pass = correctPass Then
+            If username = adminName And pass = adminPass Then
+
+                currentUser = "Admin"
+
+                'Loads the loading page if succesfull
+                Loading_Form.Show()
+                Me.Hide()
+
+            ElseIf username = studentName And pass = studentPass Then
+                currentUser = "Student"
 
                 'Loads the loading page if succesfull
                 Loading_Form.Show()
@@ -25,12 +45,20 @@
             ElseIf pass = "" Then
                 MsgBox("Please enter your password")
 
-                'Check to see if the username or password is correct
-            ElseIf username <> correctName And pass <> correctPass Then
+                'Check to see if the admin username or password is correct
+            ElseIf username <> adminName And pass <> adminPass Then
                 MsgBox("Sorry wrong username and password")
-            ElseIf username <> correctName And pass = correctPass Then
+            ElseIf username <> adminName And pass = adminPass Then
                 MsgBox("Sorry wrong username")
-            ElseIf username = correctName And pass <> correctPass Then
+            ElseIf username = adminName And pass <> adminPass Then
+                MsgBox("Sorry wrong password")
+
+                'Check to see if the student username or password is correct
+            ElseIf username <> studentName And pass <> studentPass Then
+                MsgBox("Sorry wrong username and password")
+            ElseIf username <> studentName And pass = studentPass Then
+                MsgBox("Sorry wrong username")
+            ElseIf username = studentName And pass <> studentPass Then
                 MsgBox("Sorry wrong password")
 
             End If
@@ -42,9 +70,5 @@
 
     Private Sub cancelBtn_Click(sender As Object, e As EventArgs) Handles cancelBtn.Click
         Application.Exit()
-    End Sub
-
-    Private Sub mainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Employee_Information_Form.Show()
     End Sub
 End Class

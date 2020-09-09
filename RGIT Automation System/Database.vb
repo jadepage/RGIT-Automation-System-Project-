@@ -58,6 +58,19 @@
         End If
     End Sub
 
+    ' Check if the record was deleted
+    Public Sub CheckDeleteSuccess()
+        Dim i As Integer
+
+        i = Cmd.ExecuteNonQuery()
+
+        If i > 0 Then
+            MsgBox("The record has been deleted")
+        Else
+            MsgBox("The record has not been deleted")
+        End If
+    End Sub
+
     'Handles the database connection and SQL 
     Public Sub HandleSQL_And_Connection()
         Cmd.Connection = Connection

@@ -3,7 +3,17 @@
     'Instantiating the database class 
     Dim Database As New Database
 
-
+    'Check to see if a student is logged in
+    Private Sub Employee_Information_Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If mainForm.currentUser = "Student" Then
+            'Hide Submit btn
+            submitBtn.Hide()
+            'Hide updateBtn
+            updateBtn.Hide()
+            'Hide deleteBtn
+            deleteBtn.Hide()
+        End If
+    End Sub
 
     'Handles The Menu
     Public Sub ButtonClicks_Click(sender As System.Object, e As System.EventArgs) Handles StudentInformationToolStripMenuItem.Click,
@@ -153,4 +163,6 @@
             Database.Connection.Close()
         End Try
     End Sub
+
+
 End Class

@@ -581,7 +581,7 @@ Partial Class Student_Information_Form
         Me.Controls.Add(Me.MenuStrip2)
         Me.Name = "Student_Information_Form"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "College Management System - [Student Information]"
+        Me.Text = "="
         Me.MenuStrip2.ResumeLayout(False)
         Me.MenuStrip2.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)

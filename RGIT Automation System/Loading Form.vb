@@ -1,4 +1,4 @@
-﻿Public Class Loading_Form
+﻿Public Class Loading_Form : Inherits Form
     Private Sub Loading_Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'Timer for the progress bar
@@ -12,8 +12,9 @@
             Timer1.Stop()
             Me.Hide()
 
-            'Once the progress bar has loaded then Employee Info form is displayed
+            'Shows the employee info form
             Employee_Information_Form.Show()
-        End If
+
+            End If
     End Sub
 End Class
