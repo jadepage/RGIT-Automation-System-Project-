@@ -52,6 +52,44 @@
     End Sub
 
 
+    'Display the data from the database in the textbox
+    Private Sub DataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView.CellContentClick
+
+        studentID.Text = DataGridView.CurrentRow.Cells(0).Value
+        firstName.Text = DataGridView.CurrentRow.Cells(1).Value
+        middleName.Text = DataGridView.CurrentRow.Cells(2).Value
+        lastName.Text = DataGridView.CurrentRow.Cells(3).Value
+        mothersName.Text = DataGridView.CurrentRow.Cells(4).Value
+        dateOfBirth.Text = DataGridView.CurrentRow.Cells(5).Value
+        fathersName.Text = DataGridView.CurrentRow.Cells(6).Value
+        bloodGroup.Text = DataGridView.CurrentRow.Cells(7).Value
+        localAddress.Text = DataGridView.CurrentRow.Cells(8).Value
+        permamanentAddress.Text = DataGridView.CurrentRow.Cells(9).Value
+        gender.Text = DataGridView.CurrentRow.Cells(10).Value
+        category.Text = DataGridView.CurrentRow.Cells(11).Value
+        email.Text &= DataGridView.CurrentRow.Cells(12).Value
+        contactNumber.Text = DataGridView.CurrentRow.Cells(13).Value
+    End Sub
+
+    'Clear the textboxes after the data has been submitted/updated
+    Public Sub clearText()
+        studentID.Text = ""
+        firstName.Text = ""
+        middleName.Text = ""
+        lastName.Text = ""
+        mothersName.Text = ""
+        dateOfBirth.Text = ""
+        fathersName.Text = ""
+        bloodGroup.Text = ""
+        localAddress.Text = ""
+        permamanentAddress.Text = ""
+        gender.Text = ""
+        category.Text = ""
+        email.Text = ""
+        contactNumber.Text = ""
+    End Sub
+
+
     'Adds a new student
     Private Sub submitBtn_Click(sender As Object, e As EventArgs) Handles submitBtn.Click
 
@@ -83,7 +121,7 @@
             ' " & firstName.Text & "', 
             '" & middleName.Text & "' , 
             '" & lastName.Text & "', 
-            '" & dateOfBirth.Value.ToShortDateString & "', 
+            '" & dateOfBirth.Text & "', 
             '" & mothersName.Text & "',
             '" & fathersName.Text & "', 
             '" & bloodGroup.Text & "', 
@@ -106,6 +144,7 @@
 
         Finally
             Database.Connection.Close()
+            clearText()
         End Try
     End Sub
 
@@ -130,6 +169,7 @@
             MsgBox(ex.Message)
         Finally
             Database.Connection.Close()
+
         End Try
     End Sub
 
@@ -146,7 +186,7 @@
             [firstName] ='" & firstName.Text & "', 
             [middleName] ='" & middleName.Text & "', 
             [lastName] ='" & lastName.Text & "',
-            [dateOfBirth] ='" & dateOfBirth.Value.ToShortDateString & "', 
+            [dateOfBirth] ='" & dateOfBirth.Text & "', 
             [mothersName] ='" & mothersName.Text & "',
             [fathersName] ='" & fathersName.Text & "', 
             [bloodGroup] ='" & bloodGroup.Text & "', 
@@ -156,7 +196,6 @@
             [category] ='" & category.Text & "',
             [email] ='" & email.Text & "',
             [contactNumber] ='" & Val(contactNumber.Text) & "' "
-
 
             'Handles the database connection and SQL 
             Database.HandleSQL_And_Connection()
@@ -169,31 +208,65 @@
 
         Finally
             Database.Connection.Close()
+            clearText()
         End Try
     End Sub
 
     Private Sub deleteBtn_Click(sender As Object, e As EventArgs) Handles deleteBtn.Click
+
         Try
-            'Open database connection
+            'Open DB Connection
             Database.OpenConnection()
 
-            'Delete the  selected data
-            Database.Sql = "DELETE * FROM Student_Management WHERE studentID = '" & DataGridView.CurrentRow.Cells(0).Value & "'"
-
+            'Which record to be deleted
+            If DataGridView.CurrentRow.Cells(0).Selected Then
+                Database.Sql = "DELETE from Student_Management where [studentID] = " & Val(studentID.Text) & ""
+            ElseIf DataGridView.CurrentRow.Cells(1).Selected Then
+                Database.Sql = "DELETE from Student_Management where [firstName] = " & firstName.Text & ""
+            ElseIf DataGridView.CurrentRow.Cells(2).Selected Then
+                Database.Sql = "DELETE from Student_Management where [middleName] = " & middleName.Text & ""
+            ElseIf DataGridView.CurrentRow.Cells(3).Selected Then
+                Database.Sql = "DELETE from Student_Management where [middleName] = " & middleName.Text & ""
+            ElseIf DataGridView.CurrentRow.Cells(4).Selected Then
+                Database.Sql = "DELETE from Student_Management where [lastName] = " & lastName.Text & ""
+            ElseIf DataGridView.CurrentRow.Cells(5).Selected Then
+                Database.Sql = "DELETE from Student_Management where [dateOfBirth] = " & dateOfBirth.Text & ""
+            ElseIf DataGridView.CurrentRow.Cells(6).Selected Then
+                Database.Sql = "DELETE from Student_Management where [mothersName] = " & mothersName.Text & ""
+            ElseIf DataGridView.CurrentRow.Cells(7).Selected Then
+                Database.Sql = "DELETE from Student_Management where [fathersName] = " & fathersName.Text & ""
+            ElseIf DataGridView.CurrentRow.Cells(8).Selected Then
+                Database.Sql = "DELETE from Student_Management where [bloodGroup] = " & bloodGroup.Text & ""
+            ElseIf DataGridView.CurrentRow.Cells(9).Selected Then
+                Database.Sql = "DELETE from Student_Management where [localAddress] = " & localAddress.Text & ""
+            ElseIf DataGridView.CurrentRow.Cells(10).Selected Then
+                Database.Sql = "DELETE from Student_Management where [permamanentAddress] = " & permamanentAddress.Text & ""
+            ElseIf DataGridView.CurrentRow.Cells(11).Selected Then
+                Database.Sql = "DELETE from Student_Management where [gender] = " & gender.Text & ""
+            ElseIf DataGridView.CurrentRow.Cells(12).Selected Then
+                Database.Sql = "DELETE from Student_Management where [category] = " & Val(category.Text) & ""
+            ElseIf DataGridView.CurrentRow.Cells(13).Selected Then
+                Database.Sql = "DELETE from Student_Management where [contactNumber] = " & Val(contactNumber.Text) & ""
+            End If
 
             'Handles the database connection and SQL 
             Database.HandleSQL_And_Connection()
 
-            'Check if the record was updated successfully
+            'Checks if the record was deleted
             Database.CheckDeleteSuccess()
-
         Catch ex As Exception
             MsgBox(ex.Message)
-
         Finally
+            'Close the connection
             Database.Connection.Close()
+            'Clear text
+            clearText()
         End Try
+
     End Sub
 
-
+    'Clears the textboxes
+    Private Sub clearBtn_Click(sender As Object, e As EventArgs) Handles clearBtn.Click
+        clearText()
+    End Sub
 End Class

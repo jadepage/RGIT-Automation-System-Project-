@@ -4,6 +4,10 @@ Public Class mainForm
     Dim adminName, adminPass As String
     Dim studentName, studentPass As String
 
+    Private Sub mainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Student_Information_Form.Show()
+    End Sub
+
 
     'Public variable to cehck who is logged in
     Public Shared currentUser As String = ""

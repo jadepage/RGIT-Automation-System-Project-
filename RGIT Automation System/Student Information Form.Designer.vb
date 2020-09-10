@@ -55,7 +55,6 @@ Partial Class Student_Information_Form
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.dateOfBirth = New System.Windows.Forms.DateTimePicker()
         Me.lastName = New System.Windows.Forms.TextBox()
         Me.middleName = New System.Windows.Forms.TextBox()
         Me.firstName = New System.Windows.Forms.TextBox()
@@ -76,6 +75,7 @@ Partial Class Student_Information_Form
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridView = New System.Windows.Forms.DataGridView()
+        Me.dateOfBirth = New System.Windows.Forms.TextBox()
         Me.MenuStrip2.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
@@ -382,13 +382,6 @@ Partial Class Student_Information_Form
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Personal Details"
         '
-        'dateOfBirth
-        '
-        Me.dateOfBirth.Location = New System.Drawing.Point(159, 142)
-        Me.dateOfBirth.Name = "dateOfBirth"
-        Me.dateOfBirth.Size = New System.Drawing.Size(145, 20)
-        Me.dateOfBirth.TabIndex = 8
-        '
         'lastName
         '
         Me.lastName.Location = New System.Drawing.Point(159, 103)
@@ -569,6 +562,13 @@ Partial Class Student_Information_Form
         Me.DataGridView.Size = New System.Drawing.Size(777, 183)
         Me.DataGridView.TabIndex = 19
         '
+        'dateOfBirth
+        '
+        Me.dateOfBirth.Location = New System.Drawing.Point(159, 141)
+        Me.dateOfBirth.Name = "dateOfBirth"
+        Me.dateOfBirth.Size = New System.Drawing.Size(146, 20)
+        Me.dateOfBirth.TabIndex = 7
+        '
         'Student_Information_Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -655,5 +655,5 @@ Partial Class Student_Information_Form
     Friend WithEvents category As ComboBox
     Friend WithEvents gender As ComboBox
     Friend WithEvents DataGridView As DataGridView
-    Friend WithEvents dateOfBirth As DateTimePicker
+    Friend WithEvents dateOfBirth As TextBox
 End Class
