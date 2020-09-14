@@ -85,6 +85,12 @@
     <Compile Include="About Developer Form2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Admin Form.Designer.vb">
+      <DependentUpon>Admin Form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Course Details Form.Designer.vb">
       <DependentUpon>Course Details Form.vb</DependentUpon>
     </Compile>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="About Developer Form2.resx">
       <DependentUpon>About Developer Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin Form.resx">
+      <DependentUpon>Admin Form.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Course Details Form.resx">
       <DependentUpon>Course Details Form.vb</DependentUpon>

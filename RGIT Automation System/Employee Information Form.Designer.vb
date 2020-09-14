@@ -62,7 +62,6 @@ Partial Class Employee_Information_Form
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.dateOfBirth = New System.Windows.Forms.DateTimePicker()
         Me.lastName = New System.Windows.Forms.TextBox()
         Me.firstName = New System.Windows.Forms.TextBox()
         Me.employeeTitle = New System.Windows.Forms.TextBox()
@@ -74,6 +73,7 @@ Partial Class Employee_Information_Form
         Me.employeeID = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dataGridView = New System.Windows.Forms.DataGridView()
+        Me.dateOfBirth = New System.Windows.Forms.TextBox()
         Me.MenuStrip2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -444,13 +444,6 @@ Partial Class Employee_Information_Form
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Personal Details"
         '
-        'dateOfBirth
-        '
-        Me.dateOfBirth.Location = New System.Drawing.Point(158, 141)
-        Me.dateOfBirth.Name = "dateOfBirth"
-        Me.dateOfBirth.Size = New System.Drawing.Size(145, 20)
-        Me.dateOfBirth.TabIndex = 7
-        '
         'lastName
         '
         Me.lastName.Location = New System.Drawing.Point(159, 103)
@@ -543,6 +536,13 @@ Partial Class Employee_Information_Form
         Me.dataGridView.Size = New System.Drawing.Size(720, 193)
         Me.dataGridView.TabIndex = 16
         '
+        'dateOfBirth
+        '
+        Me.dateOfBirth.Location = New System.Drawing.Point(159, 140)
+        Me.dateOfBirth.Name = "dateOfBirth"
+        Me.dateOfBirth.Size = New System.Drawing.Size(145, 20)
+        Me.dateOfBirth.TabIndex = 7
+        '
         'Employee_Information_Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -627,5 +627,5 @@ Partial Class Employee_Information_Form
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents dataGridView As DataGridView
-    Friend WithEvents dateOfBirth As DateTimePicker
+    Friend WithEvents dateOfBirth As TextBox
 End Class

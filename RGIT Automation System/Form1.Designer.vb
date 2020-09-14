@@ -32,6 +32,7 @@ Partial Class mainForm
         Me.LoginUserName = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -123,11 +124,20 @@ Partial Class mainForm
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Username"
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(514, 449)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(0, 13)
+        Me.Label5.TabIndex = 6
+        '
         'mainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(771, 450)
+        Me.ClientSize = New System.Drawing.Size(771, 555)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label1)
@@ -150,4 +160,5 @@ Partial Class mainForm
     Friend WithEvents okBtn As Button
     Friend WithEvents LoginPassword As TextBox
     Friend WithEvents LoginUserName As TextBox
+    Friend WithEvents Label5 As Label
 End Class

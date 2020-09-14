@@ -10,6 +10,8 @@
             submitBtn.Hide()
             'Hide the delete btn
             deleteBtn.Hide()
+            'Hide admin button
+            adminLink.Hide()
         End If
     End Sub
 
@@ -268,5 +270,10 @@
     'Clears the textboxes
     Private Sub clearBtn_Click(sender As Object, e As EventArgs) Handles clearBtn.Click
         clearText()
+    End Sub
+
+    Private Sub Label16_Click(sender As Object, e As EventArgs) Handles adminLink.Click
+        Admin_Form.Show()
+        Me.Hide()
     End Sub
 End Class

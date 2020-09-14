@@ -53,6 +53,7 @@
         End Try
     End Sub
 
+    'Adds a new employee
     Private Sub submitBtn_Click(sender As Object, e As EventArgs) Handles submitBtn.Click
 
         Try
@@ -82,7 +83,7 @@
             ' " & employeeTitle.Text & "', 
             '" & firstName.Text & "' , 
             '" & lastName.Text & "' , 
-            '" & dateOfBirth.Value.ToShortDateString & "', 
+            '" & dateOfBirth.Text & "', 
             '" & Val(mobileNumber.Text) & "', 
             '" & Val(phoneNumber.Text) & "',
             '" & email.Text & "',
@@ -104,6 +105,7 @@
             MsgBox(ex.Message)
         End Try
         Database.Connection.Close()
+        clearText()
     End Sub
 
     'Lists all the employees
@@ -141,6 +143,7 @@
             [employeeTitle] ='" & employeeTitle.Text & "', 
             [firstName] ='" & firstName.Text & "', 
             [lastName] ='" & lastName.Text & "', 
+            [dateOfBirth] = '" & dateOfBirth.Text & "',
             [mobileNumber] ='" & Val(mobileNumber.Text) & "',
             [phoneNumber] ='" & Val(phoneNumber.Text) & "', 
             [employeeEmail] ='" & email.Text & "',
@@ -164,5 +167,93 @@
         End Try
     End Sub
 
+    'Fill the textboxes with the data from the db
+    Private Sub dataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dataGridView.CellContentClick
+        employeeID.Text = dataGridView.CurrentRow.Cells(0).Value
+        employeeTitle.Text = dataGridView.CurrentRow.Cells(1).Value
+        firstName.Text = dataGridView.CurrentRow.Cells(2).Value
+        lastName.Text = dataGridView.CurrentRow.Cells(3).Value
+        dateOfBirth.Text = dataGridView.CurrentRow.Cells(4).Value
+        mobileNumber.Text = dataGridView.CurrentRow.Cells(5).Value
+        phoneNumber.Text = dataGridView.CurrentRow.Cells(6).Value
+        email.Text = dataGridView.CurrentRow.Cells(7).Value
+        permanentAddress.Text = dataGridView.CurrentRow.Cells(8).Value
+        localAddress.Text = dataGridView.CurrentRow.Cells(9).Value
+        employeeDesignation.Text = dataGridView.CurrentRow.Cells(10).Value
+        employeeType.Text = dataGridView.CurrentRow.Cells(11).Value
+        salary.Text &= dataGridView.CurrentRow.Cells(12).Value
+    End Sub
 
+    'Clear the textboxes after the data has been submitted
+    Public Sub clearText()
+        employeeID.Text = ""
+        employeeTitle.Text = ""
+        firstName.Text = ""
+        lastName.Text = ""
+        dateOfBirth.Text = ""
+        mobileNumber.Text = ""
+        phoneNumber.Text = ""
+        email.Text = ""
+        permanentAddress.Text = ""
+        localAddress.Text = ""
+        employeeDesignation.Text = ""
+        employeeType.Text = ""
+        salary.Text = ""
+    End Sub
+
+    'Clears the textboxes
+    Private Sub clearBtn_Click(sender As Object, e As EventArgs) Handles clearBtn.Click
+        clearText()
+    End Sub
+
+    'Deletes a record from the database
+    Private Sub deleteBtn_Click(sender As Object, e As EventArgs) Handles deleteBtn.Click
+        Try
+            'Open DB Connection
+            Database.OpenConnection()
+
+            'Which record to be deleted
+            If dataGridView.CurrentRow.Cells(0).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [employeeID] = " & Val(employeeID.Text) & ""
+            ElseIf dataGridView.CurrentRow.Cells(1).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [employeeTitle] = " & employeeTitle.Text & ""
+            ElseIf dataGridView.CurrentRow.Cells(2).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [firstName] = " & firstName.Text & ""
+            ElseIf dataGridView.CurrentRow.Cells(3).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [lastName] = " & lastName.Text & ""
+            ElseIf dataGridView.CurrentRow.Cells(4).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [dateOfBirth] = " & dateOfBirth.Text & ""
+            ElseIf dataGridView.CurrentRow.Cells(5).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [mobieNumber] = " & Val(mobileNumber.Text) & ""
+            ElseIf dataGridView.CurrentRow.Cells(6).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [phoneNumber] = " & Val(phoneNumber.Text) & ""
+            ElseIf dataGridView.CurrentRow.Cells(7).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [employeeEmail] = " & email.Text & ""
+            ElseIf dataGridView.CurrentRow.Cells(8).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [permanentAddress] = " & permanentAddress.Text & ""
+            ElseIf dataGridView.CurrentRow.Cells(9).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [localAddress] = " & localAddress.Text & ""
+            ElseIf dataGridView.CurrentRow.Cells(10).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [designation] = " & employeeDesignation.Text & ""
+            ElseIf dataGridView.CurrentRow.Cells(11).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [employeeType] = " & employeeType.Text & ""
+            ElseIf dataGridView.CurrentRow.Cells(12).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [salary] = " & Val(salary.Text) & ""
+
+            End If
+
+            'Handles the database connection and SQL 
+            Database.HandleSQL_And_Connection()
+
+            'Checks if the record was deleted
+            Database.CheckDeleteSuccess()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            'Close the connection
+            Database.Connection.Close()
+            'Clear text
+            clearText()
+        End Try
+    End Sub
 End Class

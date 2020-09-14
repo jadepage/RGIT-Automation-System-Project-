@@ -92,6 +92,7 @@
 
         Finally
             Database.Connection.Close()
+            clearText()
         End Try
     End Sub
 
@@ -147,4 +148,68 @@
         End Try
     End Sub
 
+    'Fill the textboxes with the data from the db
+    Private Sub dataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dataGridView.CellContentClick
+        feesID.Text = dataGridView.CurrentRow.Cells(0).Value
+        studentID.Text = dataGridView.CurrentRow.Cells(1).Value
+        studentID.Text = dataGridView.CurrentRow.Cells(2).Value
+        feesDate.Text = dataGridView.CurrentRow.Cells(3).Value
+        feesMonth.Text = dataGridView.CurrentRow.Cells(4).Value
+        feesYear.Text = dataGridView.CurrentRow.Cells(5).Value
+        feesAmount.Text = dataGridView.CurrentRow.Cells(6).Value
+
+    End Sub
+
+    'Clear the textboxes after the data has been submitted
+    Public Sub clearText()
+        feesID.Text = ""
+        studentID.Text = ""
+        studentID.Text = ""
+        feesDate.Text = ""
+        feesMonth.Text = ""
+        feesYear.Text = ""
+        feesAmount.Text = ""
+    End Sub
+
+    Private Sub clearBtn_Click(sender As Object, e As EventArgs) Handles clearBtn.Click
+        clearText()
+    End Sub
+
+    'Deletes a record from the database
+    Private Sub deleteBtn_Click(sender As Object, e As EventArgs) Handles deleteBtn.Click
+        Try
+            'Open DB Connection
+            Database.OpenConnection()
+
+            'Which record to be deleted
+            If dataGridView.CurrentRow.Cells(0).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [feesID] = " & Val(feesID.Text) & ""
+            ElseIf dataGridView.CurrentRow.Cells(1).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [studentID] = " & Val(studentID.Text) & ""
+            ElseIf dataGridView.CurrentRow.Cells(2).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [paymentType] = " & paymentType.Text & ""
+            ElseIf dataGridView.CurrentRow.Cells(3).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [feesDate] = " & feesDate.Text & ""
+            ElseIf dataGridView.CurrentRow.Cells(4).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [feesMonth] = " & feesMonth.Text & ""
+            ElseIf dataGridView.CurrentRow.Cells(5).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [feesYear] = " & feesYear.Text & ""
+            ElseIf dataGridView.CurrentRow.Cells(6).Selected Then
+                Database.Sql = "DELETE from Employee_Faculty where [feesAmount] = " & Val(feesAmount.Text) & ""
+            End If
+
+            'Handles the database connection and SQL 
+            Database.HandleSQL_And_Connection()
+
+            'Checks if the record was deleted
+            Database.CheckDeleteSuccess()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            'Close the connection
+            Database.Connection.Close()
+            'Clear text
+            clearText()
+        End Try
+    End Sub
 End Class
